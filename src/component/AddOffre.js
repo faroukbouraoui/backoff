@@ -8,10 +8,11 @@ class AddOffre extends Component {
         this.state = {
           selectOptions : [],
           value:[],
-          name:"",
-          desription:"",
-          price: 0,
-          services:""
+          offres:[
+            {
+
+            }
+          ]
           
         }
       }
@@ -57,11 +58,10 @@ class AddOffre extends Component {
     }
     handleChangeprice = event =>{
         this.setState({price:event.target.value})
-    }
+    }*/
     handleChangeservices = event =>{
-        this.setState({services:event.target.value})
+        this.setState({value:event.value})
     }
-*/
 
     render() {
         console.log(this.state.value)
@@ -69,6 +69,8 @@ class AddOffre extends Component {
             <div>
             <div className="page-wrapper">
             <div className="page-title">
+            <div className="row align-items-center">
+            </div></div></div>
             <div className="page-body">
             <div className="row">
             <div className="col-12">
@@ -79,10 +81,10 @@ class AddOffre extends Component {
       </div>
       <div className="panel-body">
         <form>
-          <div className="row">
+          
   
   
-          </div>
+          
           <div className="form-group row">
             <label className="col-12 col-form-label" >Offre name <i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
             <div className="col-12">
@@ -104,7 +106,7 @@ class AddOffre extends Component {
         <div className="form-group row">
         <label className="col-12 col-form-label">Services<i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
         <div className="col-12">
-        <Select  placeholder="Select service . . ." options={this.state.selectOptions} onChange={e =>this.setState({value:e.target.value})} isMulti />
+        <Select  placeholder="Select service . . ." options={this.state.selectOptions} onChange={this.handleChangeservices.bind(this)} isMulti />
   
         </div>
       </div>
@@ -120,8 +122,6 @@ class AddOffre extends Component {
   </div>
   </div>
   </div>
-  </div>
-            </div>
         )
     }
 }

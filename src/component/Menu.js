@@ -37,8 +37,11 @@ export class Menu extends Component {
                   <Link to="/offres"><span>Gestion Offres</span></Link>
                 </li>
                 <li>
-                  <Link href="dashboard-crm.html"><span>Gestion Blogs</span></Link>
+                  <Link to="/blogs"><span>Gestion Blogs</span></Link>
                 </li>
+                <li>
+                <Link to="/contact"><span>Gestion Des Contacts</span></Link>
+              </li>
                 <li>
                   <Link href="dashboard-analytics.html"><span>Templates</span></Link>
                 </li>

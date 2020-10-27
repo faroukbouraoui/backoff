@@ -28,7 +28,7 @@ function Addservice() {
           <div className="panel panel-default">
   <div className="panel">
     <div className="panel-head">
-      <h5 className="panel-title">Tip Sytle form</h5>
+      <h5 className="panel-title">Add Service</h5>
     </div>
     <div className="panel-body">
       <form>

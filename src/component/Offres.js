@@ -23,7 +23,8 @@ export class Offres extends Component {
     }
     render() {
         return (
-<div>
+
+<div className="wrapper">
   <div className="page-wrapper">
     {/* Page Title */}
     <div className="page-title">
@@ -41,13 +42,18 @@ export class Offres extends Component {
         </div>
       </div>
     </div>
-    {/* Page Body */}
+    
+    
     <div className="page-body">
+    
       <div className="row">
+      {this.state.offres.map((offre)=>(
         <div className="col-md-4">
-            {this.state.offres.map((offre)=>(
+        
           <div className="pricing01">
+          
             <div className="pricing-title">
+            
               <i className="icon-screen-desktop" />
               <h2>{offre.name}</h2>
               <small>{offre.description}</small>
@@ -64,15 +70,16 @@ export class Offres extends Component {
                 ))}
               </ul>
             </div>
-      
+           
             <div className="pricing-footer">
-              <button className="btn btn-primary btn-pill">But It Now</button>
+              <button className="btn btn-primary btn-pill" style={{marginRight:"5px"}}>Update</button>
+              <button className="btn btn-primary btn-pill">Delete</button>
             </div>
             
           </div>
-          ))}
+          
         </div>
-        
+        ))}
       </div>
       
     </div></div></div>
