@@ -57,7 +57,7 @@ export class Services extends Component {
          
           <div className="col-md-6 text-right">
             <button className="btn btn-primary btn-pill btn-sm"><Link to="/post-service">Add</Link></button>
-            <button className="btn btn-warning btn-pill btn-sm"><Link to="/update-service">Update</Link></button>
+            <button className="btn btn-warning btn-pill btn-sm"><Link to={"/updateservice/"+service._id}>Update</Link></button>
             <button className="btn btn-danger btn-pill btn-sm" onClick={(e) => {this.deleteService (service._id, e)}}>Delete</button>
           </div>
         </div>

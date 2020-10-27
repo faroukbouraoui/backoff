@@ -8,16 +8,14 @@ class AddOffre extends Component {
         this.state = {
           selectOptions : [],
           value:[],
-          offres:[
-            {
-
-            }
-          ]
-          
+          name:"",
+          description:"",
+          price:"",
+          services:""
         }
       }
 
-     changeOnClick =() =>{
+     changeOnClick () {
        
  
         const offre ={
@@ -30,7 +28,7 @@ class AddOffre extends Component {
             
         }
 
-         Axios.post("http://localhost:4000/offres/neww", {offre}).then(res => alert("sucess add")).catch(err => console.log(err))
+         Axios.post("http://localhost:4000/offres/new", offre).then(res => alert("sucess add")).catch(err => console.log(err))
     }
 
 
@@ -48,9 +46,10 @@ class AddOffre extends Component {
 
       componentDidMount(){
         this.getOptions()
+        this.changeOnClick()
         
     }
-   /* handleChangename = event =>{
+    handleChangename = event =>{
         this.setState({name:event.target.value})
     }
     handleChangedescription = event =>{
@@ -58,9 +57,6 @@ class AddOffre extends Component {
     }
     handleChangeprice = event =>{
         this.setState({price:event.target.value})
-    }*/
-    handleChangeservices = event =>{
-        this.setState({value:event.value})
     }
 
     render() {
@@ -69,8 +65,8 @@ class AddOffre extends Component {
             <div>
             <div className="page-wrapper">
             <div className="page-title">
-            <div className="row align-items-center">
-            </div></div></div>
+            
+            
             <div className="page-body">
             <div className="row">
             <div className="col-12">
@@ -88,25 +84,25 @@ class AddOffre extends Component {
           <div className="form-group row">
             <label className="col-12 col-form-label" >Offre name <i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
             <div className="col-12">
-              <input  onChange={e =>this.setState({name:e.target.value})} type="text" className="form-control" placeholder="placeholder" />
+              <input value={this.state.name} onChange={this.handleChangename} type="text" className="form-control" placeholder="placeholder" />
             </div>
           </div>
           <div className="form-group row">
             <label className="col-12 col-form-label">Service description <i className="tip tippy bg-success" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is textarea." /></label>
             <div className="col-12">
-              <textarea  onChange={e =>this.setState({description:e.target.value})}className="form-control" rows={5} defaultValue={""} />
+              <textarea value={this.state.description} onChange={this.handleChangedescription} className="form-control" rows={5} defaultValue={""} />
             </div>
           </div>
           <div className="form-group row">
           <label className="col-12 col-form-label">Price per month<i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
           <div className="col-12">
-            <input  onChange={e =>this.setState({price:e.target.value})} type="number" className="form-control" placeholder="price" />
+            <input value={this.state.price} onChange={this.handleChangeprice} type="number" className="form-control" placeholder="price" />
           </div>
         </div>
         <div className="form-group row">
         <label className="col-12 col-form-label">Services<i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
         <div className="col-12">
-        <Select  placeholder="Select service . . ." options={this.state.selectOptions} onChange={this.handleChangeservices.bind(this)} isMulti />
+        <Select value={this.state.services} placeholder="Select service . . ." options={this.state.selectOptions}  isMulti />
   
         </div>
       </div>
@@ -122,6 +118,7 @@ class AddOffre extends Component {
   </div>
   </div>
   </div>
+  </div></div>
         )
     }
 }

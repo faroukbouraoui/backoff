@@ -54,7 +54,7 @@ function AddBlog() {
       <div className="form-group row">
         <label className="col-12 col-form-label">Blog description <i className="tip tippy bg-success" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is textarea." /></label>
         <div className="col-sm-12" >
-          <textarea  value={description} onChange={e => setDescription(e.target.value)} className="form-control" rows={5} defaultValue={""} />
+          <textarea  value={description} onChange={e => setDescription(e.target.value)} className="form-control" rows={5} placeholder="Description"/>
         </div>
       </div>
 

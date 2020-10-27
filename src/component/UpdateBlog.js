@@ -1,5 +1,7 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import Blogs from './Blogs';
 
 export class UpdateBlog extends Component {
 
@@ -17,8 +19,8 @@ export class UpdateBlog extends Component {
         description:''
       }
     }
-    componentDidMount(id){
-        Axios.get(`http://localhost:4000/blogs/update/${id}`).then(res =>{
+   componentDidMount(){
+        Axios.get(`http://localhost:4000/blogs/update/`+ this.props.match.params.id).then(res =>{
             this.setState({
                 title:res.data.title,
                 author: res.data.author,
@@ -28,16 +30,8 @@ export class UpdateBlog extends Component {
             console.log(error)
         })
     }
-    onChangeBlogTitle(e){
-        this.setState({title: e.target.value})
-    }
-    onChangeBlogAuthor(e){
-        this.setState({author: e.target.value})
-    }
-    onChangeBlogDescription(e){
-        this.setState({description: e.target.value})
-    }
-    onSubmit(e,id){
+
+    onSubmit(e){
         e.preventDefault()
 
         const blogobj = {
@@ -45,7 +39,7 @@ export class UpdateBlog extends Component {
             author:this.state.author,
             description:this.state.description,
         }
-        Axios.patch(`http://localhost:4000/blogs/update-blog/${id}`, blogobj).then((res)=>{
+        Axios.put(`http://localhost:4000/blogs/update-blog/`+this.props.match.params.id, blogobj).then((res)=>{
             console.log(res.data)
             console.log('blog successfully updated')
         }).catch((error)=>{
@@ -54,7 +48,15 @@ export class UpdateBlog extends Component {
         this.props.history.push('/blogs')
     }
 
-
+    onChangeBlogTitle(e){
+      this.setState({title: e.target.value})
+  }
+  onChangeBlogAuthor(e){
+      this.setState({author: e.target.value})
+  }
+  onChangeBlogDescription(e){
+      this.setState({description: e.target.value})
+  }
 
 
 
@@ -73,7 +75,7 @@ export class UpdateBlog extends Component {
     <h5 className="panel-title">Add Blog</h5>
   </div>
   <div className="panel-body">
-    <form onSubmit={this.onSubmit} >
+    <form>
       <div className="row">
 
 
@@ -93,18 +95,18 @@ export class UpdateBlog extends Component {
       <div className="form-group row">
         <label className="col-12 col-form-label">Blog description <i className="tip tippy bg-success" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is textarea." /></label>
         <div className="col-sm-12" >
-          <textarea value={this.state.description} onChange={this.onChangeBlogDescription}  className="form-control" rows={5} defaultValue={""} />
+          <textarea value={this.state.description} onChange={this.onChangeBlogDescription}  className="form-control" rows={5}  />
         </div>
       </div>
 
     
-      
+      </form>
+      </div>
   <div className="panel-footer text-right">
-    <button type="reset" className="btn btn-success mr-2" >Submit</button>
+    <button type="reset" className="btn btn-success mr-2" onClick={this.onSubmit} >Submit</button>
     <button type="reset" className="btn btn-outline btn-secondary btn-outline-1x">Cancel</button>
   </div>
-  </form>
-      </div>
+
 </div>
 </div>
 </div>

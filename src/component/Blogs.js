@@ -61,7 +61,7 @@ export class Blogs extends Component {
     <button className="btn btn-success btn-pill" style={{marginBottom:"10px",marginLeft:"500px"}}><Link to="/add-blog">create blog</Link></button>
     {/* Page Body */}
     {this.state.blogs.map((blog)=>(
-    <div className="page-body">
+    <div className="page-body" key={blog._id}>
       <div className="row">
         <div className="col-12">
           <div className="panel panel-default">
@@ -90,7 +90,7 @@ export class Blogs extends Component {
                         </p>
                         <div className="pull-right">
                           <button style={{marginRight:"5px"}} className="btn btn-outline btn-primary btn-pill btn-outline-1x btn-gradient btn-shadow" onClick={(e) => {this.deleteblog(blog._id, e)}}>Delete</button>
-                          <button  className="btn btn-outline btn-primary btn-pill btn-outline-1x btn-gradient btn-shadow"><Link to="/update-blog">Update</Link></button>
+                          <button  className="btn btn-outline btn-primary btn-pill btn-outline-1x btn-gradient btn-shadow"><Link to={"/update-blog/"+blog._id}>Update</Link></button>
                         </div>
                       </div>
                     </div>

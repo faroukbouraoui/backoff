@@ -8,15 +8,19 @@ const initialState= {
         offre:{
             
         },
-        services:{}
+        services:{}  
 
     }
 
 ]
 }
 
-function reducers(state){
-    return state;
+function reducers(state, action){
+    switch(action.type){
+        default:
+        return state;
+    }
+    
 }
 
 const store= createStore(reducers, initialState)
