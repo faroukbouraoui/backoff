@@ -2,6 +2,7 @@ import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import Blogs from './Blogs';
+import Menu from './Menu';
 
 export class UpdateBlog extends Component {
 
@@ -63,7 +64,7 @@ export class UpdateBlog extends Component {
     render() {
         return (
             <div>
-                 <div>
+            <Menu />
         <div className="page-wrapper">
         <div className="page-title">
         <div className="page-body">
@@ -116,7 +117,7 @@ export class UpdateBlog extends Component {
 </div>
         
         </div>
-            </div>
+            
         )
     }
 }

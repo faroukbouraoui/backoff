@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { Component } from 'react'
+import Menu from './Menu';
 
 export class UpdateService extends Component {
 
@@ -54,6 +55,7 @@ onChangeServiceName(e){
         return (
             
             <div>
+            <Menu />
             <div className="page-wrapper">
             <div className="page-title">
             <div className="page-body">

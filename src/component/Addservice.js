@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React, { useState } from 'react'
+import Menu from './Menu'
 
 function Addservice() {
 
@@ -20,6 +21,7 @@ function Addservice() {
 
         return (
           <div>
+          <Menu />
           <div className="page-wrapper">
           <div className="page-title">
           <div className="page-body">

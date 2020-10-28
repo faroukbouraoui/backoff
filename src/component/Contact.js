@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
+import Menu from './Menu'
 
 export class Contact extends Component {
 state={
@@ -21,7 +22,8 @@ componentDidMount(){
 }
     render(){
     return (
- 
+  <div>
+  <Menu />
  <div className="page-wrapper">
  {/* Page Title */}
  <div className="page-title">
@@ -77,7 +79,7 @@ componentDidMount(){
         </div>
       </div>
     </div>
-  </div></div>
+  </div></div></div>
 
     )
 }}

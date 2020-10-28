@@ -1,6 +1,7 @@
 
 import Axios from 'axios'
 import React, { useState } from 'react'
+import Menu from './Menu'
 
 function AddBlog() {
     const [title, setTitle] = useState('')
@@ -23,6 +24,7 @@ function AddBlog() {
     
     return(
         <div>
+        <Menu />
         <div className="page-wrapper">
         <div className="page-title">
         <div className="page-body">

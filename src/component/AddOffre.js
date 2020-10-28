@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
 import Select from 'react-select'
+import Menu from './Menu'
 
 class AddOffre extends Component {
     constructor(props){
@@ -63,6 +64,7 @@ class AddOffre extends Component {
         console.log(this.state.value)
         return (
             <div>
+            <Menu />
             <div className="page-wrapper">
             <div className="page-title">
             

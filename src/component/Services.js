@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Menu from './Menu'
 
 export class Services extends Component {
   state={
@@ -28,10 +29,10 @@ export class Services extends Component {
     render() {
         return (
 <div>
-
+<Menu />
 <div className="page-wrapper">
   {/* Page Title */}
-
+  
 
 
 <div className="page-body">

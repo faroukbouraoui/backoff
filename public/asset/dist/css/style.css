@@ -10380,7 +10380,7 @@ select.form-control:not([size]):not([multiple]) {
             margin-top: -2px;
             width: 4px;
             height: 4px;
-            background-color: #76798e;
+            background-color: #202231;
             border-radius: 50%; }
           .menu ul .sub-menu li a:hover {
             color: #FFF; }
@@ -10575,12 +10575,14 @@ select.form-control:not([size]):not([multiple]) {
   vertical-align: middle;
   line-height: 76px;
   overflow: hidden;
-  background: rgba(40, 42, 60, 0.95);
+  background: #fff;
   transition: all 0.3s ease-in-out; }
   #logo a {
     display: inline-block; }
   #logo img {
-    max-height: 40px; }
+    max-height: 50px;
+    padding-left: 40px;
+  }
 
 .logo-icon {
   display: none;

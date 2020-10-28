@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Menu from './Menu'
 
 export class Offres extends Component {
 
@@ -23,7 +24,8 @@ export class Offres extends Component {
     }
     render() {
         return (
-
+<div>
+<Menu />
 <div className="wrapper">
   <div className="page-wrapper">
     {/* Page Title */}
@@ -82,7 +84,7 @@ export class Offres extends Component {
         ))}
       </div>
       
-    </div></div></div>
+    </div></div></div></div>
 
         )
     }
