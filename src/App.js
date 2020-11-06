@@ -47,9 +47,5 @@ function App() {
     </div>
   );
 }
-function AppWithStore(){
-  return <Provider store={store}>
-    <App />
-  </Provider>
-}
-export default AppWithStore ;
+
+export default App ;

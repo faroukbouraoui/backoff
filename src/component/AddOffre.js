@@ -12,24 +12,25 @@ class AddOffre extends Component {
           name:"",
           description:"",
           price:"",
-          services:""
+          
+          
         }
       }
 
-     changeOnClick () {
+     async changeOnClick () {
        
  
         const offre ={
             name:this.state.name,
             description:this.state.desription,
             price:this.state.price,
-            services:this.state.services
+            services:this.state.value
             
             
             
         }
 
-         Axios.post("http://localhost:4000/offres/new", offre).then(res => alert("sucess add")).catch(err => console.log(err))
+      await   Axios.post("http://localhost:4000/offres/neww", offre).then(res => alert("sucess add")).catch(err => console.log(err))
     }
 
 
@@ -38,11 +39,14 @@ class AddOffre extends Component {
         const data = res.data
     
         const options = data.map(d => ({
-          "value" : d.name,
+          "value" : d._id,
           "label": d.name
           
         }))
         this.setState({selectOptions: options})
+      }
+      handleChange(e){
+        this.setState({value:e})
       }
 
       componentDidMount(){
@@ -104,14 +108,14 @@ class AddOffre extends Component {
         <div className="form-group row">
         <label className="col-12 col-form-label">Services<i className="tip tippy bg-secondary" data-tippy-animation="scale" data-tippy-arrow="true" data-tippy data-original-title="This is placeholder." /></label>
         <div className="col-12">
-        <Select value={this.state.services} placeholder="Select service . . ." options={this.state.selectOptions}  isMulti />
-  
+        <Select  placeholder="Select service . . ." options={this.state.selectOptions} onChange={this.handleChange.bind(this)} isMulti />
+          
         </div>
       </div>
         </form>
       </div>
       <div className="panel-footer text-right">
-        <button type="reset" className="btn btn-success mr-2" onClick={this.changeOnClick.bind(this)} >Submit</button>
+        <button type="submit" className="btn btn-success mr-2" onClick={this.changeOnClick.bind(this)} >Submit</button>
         <button type="reset" className="btn btn-outline btn-secondary btn-outline-1x">Cancel</button>
       </div>
     </div>
